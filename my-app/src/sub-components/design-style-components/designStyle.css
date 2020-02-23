@@ -1,0 +1,34 @@
+.links{
+  color: white;
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  padding: 2px;
+  border-radius: 20px;
+  transition: .5s;
+  /* font-family: verdana; */
+}
+
+.links:hover{
+  box-shadow: inset 1px -1px 2px .5px rgba(255, 0, 27);
+  transition: .5s;
+}
+
+@media(max-width: 1000px){
+  #links-wrapper{
+    width: 1000px;
+    border: 2px solid purple;
+    display: block;
+  }
+  .links{
+    font-size: 18px;
+    margin: 5px;
+  }
+}
+
+#number{
+  color: #eee;
+  display: inline;
+  font-size: 17px;
+  margin: 0 20px;
+}

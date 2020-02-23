@@ -1,0 +1,10 @@
+<a href="./sub-pages/contact.html" class="footer-links"><p>Contact</p></a>
+<a href="./sub-pages/services.html" class="footer-links"><p>Services</p></a>
+<!-- <a href="./sub-pages/see-our-work.html" class="footer-links"><p>See Our Work</p></a> -->
+<a href="./sub-pages/business-model.html" class="footer-links"><p>Business Model</p></a>
+
+<section id="separator" class="footer-sections"></section>
+<section id="copyright-credit" class="footer-sections">
+  <p id="all-rights-reserved"><span><i class="fa fa-copyright"></i></span> High View Home Remodeling All Rights Reserved 2020</p>
+  <a href="#" id="imagine-tech"><p>Powered By: Imagine Tech LLC</p></a>
+</section>
