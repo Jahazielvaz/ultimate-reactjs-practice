@@ -1,0 +1,17 @@
+state = {
+  persons: [
+    {name: 'Max', age: 28},
+    {name: 'Vincent', age: 2},
+    {name: 'Valerie', age: 26}
+  ]
+}
+
+switchNameHandler = () => {
+  this.setState({
+    persons: [
+      {name: 'Jazzy', age: 34},
+      {name: 'Vincent', age: 2},
+      {name: 'Valerie', age: 26}
+    ]
+  })
+}
