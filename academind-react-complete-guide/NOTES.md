@@ -7,4 +7,5 @@
 - Style your components
 - State Understanding and Management: One thing to keep in mind is that the this keyword, when passing in state, refers to the actual component. NOTE: The advantage is that you can manage and change the values from within state, and it'll change it in the places where you call it. For example, you can change a component when the user inputs something by changing the state. Remember that props are immutable, where as state is not.
 - Event Handling: This is very correlated to state. Master this. NOTE: Convention for event handlers is to state what they do, and then to add the name handler to it, so developers know that you're executing it when the event is triggered.
-- Changing State: use this.setState()
+- Using React Hooks Instead Of Class Components: Basically you need to be able to to refactor your class components to functional components and then use react hooks to assign the initial state, and to be able to change the state at will.
+- Referencing a function inside a stateful component, on a stateless component.
