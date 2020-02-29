@@ -13,13 +13,14 @@ COMPLETED
 
 
 - Props: Outputting custom data on the same components
+COMPLETED
 
 
 - Custom content within custom elements: Basically the info you can output that goes between opening and closing tags of your custom element.
-
+COMPLETED
 
 - Style your components
-
+COMPLETED
 
 - State Understanding and Management: One thing to keep in mind is that the this keyword, when passing in state, refers to the actual component. NOTE: The advantage is that you can manage and change the values from within state, and it'll change it in the places where you call it. For example, you can change a component when the user inputs something by changing the state. Remember that props are immutable, where as state is not.
 
