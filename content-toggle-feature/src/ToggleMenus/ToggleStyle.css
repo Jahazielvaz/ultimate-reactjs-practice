@@ -1,0 +1,31 @@
+*{
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.section-wrapper{
+  border: 1px solid black;
+  width: 80vw;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.content-container{
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 5px 2px 4px 3px rgba(0, 0, 0, .3);
+}
+
+.toggle-button{
+  display: block;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 10px;
+  background: rgba(45, 177, 125);
+  font-size: 15px;
+  color: #eee;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
