@@ -9,18 +9,20 @@ class App extends Component {
     date: "Find out the date"
   }
 
-  TodaysDate = () => {
+  todaysDate = () => {
     const dateObj = new Date();
     const day = dateObj.getDate();
     const month = dateObj.getMonth();
     const year = dateObj.getFullYear();
 
-    return `${month}/${day}/${year}`;
+    this.setState({
+      date: `${month}/${day}/${year}`
+    })
   };
 
-  dataChangeHandler = () => {
+  dataChangeHandler = (name) => {
     this.setState({
-      name: "Jazzy",
+      name: name,
       career: "Software Engineer"
     })
   }
@@ -41,8 +43,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <button style={buttonOneStyle} onClick={this.dataChangeHandler}>Reveal Data</button>
-        <Practice title={this.state.title} name={this.state.name} date={this.state.date} career={this.state.career}>Seek Not To Compete. Seek To Dominate</Practice>
+        <button style={buttonOneStyle} onClick={() => {this.dataChangeHandler("Jazz")}}>Reveal Data</button>
+        <Practice title={this.state.title} name={this.state.name} dateCall={this.todaysDate} date={this.state.date} career={this.state.career}>Seek Not To Compete. Seek To Dominate</Practice>
       </div>
     );
   }
