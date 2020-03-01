@@ -27,6 +27,12 @@ class App extends Component {
     })
   }
 
+  userInputHandler = (event) => {
+    this.setState({
+      name: event.target.value
+    })
+  }
+
 
   render(){
     const buttonOneStyle = {
@@ -44,7 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         <button style={buttonOneStyle} onClick={() => {this.dataChangeHandler("Jazz")}}>Reveal Data</button>
-        <Practice title={this.state.title} name={this.state.name} dateCall={this.todaysDate} date={this.state.date} career={this.state.career}>Seek Not To Compete. Seek To Dominate</Practice>
+        <Practice currentName={this.state.name} userInput={this.userInputHandler} title={this.state.title} name={this.state.name} dateCall={this.todaysDate} date={this.state.date} career={this.state.career}>Seek Not To Compete. Seek To Dominate</Practice>
       </div>
     );
   }
