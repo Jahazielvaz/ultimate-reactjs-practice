@@ -11,3 +11,14 @@
   box-shadow: 5px 2px 4px 3px rgba(0, 0, 0, .3);
   max-width: 500px;
 }
+
+.practice-button{
+  padding: 10px;
+  margin: 10px;
+  background: rgba(74, 282, 128);
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 10px;
+  box-shadow: 3px 1px 4px 3px rgba(0, 0, 0, .2);
+  cursor: pointer;
+}
