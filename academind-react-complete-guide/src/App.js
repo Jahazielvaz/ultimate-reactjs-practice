@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
+
 import Person from './Person/Person';
 
 class App extends Component {
@@ -9,6 +12,11 @@ class App extends Component {
       {name: 'Max', age: 28},
       {name: 'Manu', age: 32},
       {name: 'Jessica', age: 26},
+    ],
+    usernames: [
+      {name: 'Jazzy'},
+      {name: 'Michelle'},
+      {name: 'Breanna'}
     ]
   }
 
@@ -32,6 +40,16 @@ class App extends Component {
     })
   }
 
+  usernameChangeHandler = () => {
+    this.setState({
+      usernames: [
+        {name: "vaz"},
+        {name: 'Michelle'},
+        {name: 'Breanna'}
+      ]
+    })
+  }
+
   render(){
     const style = {
       backgroundColor: 'white',
@@ -47,6 +65,12 @@ class App extends Component {
         <h1><Person name={this.state.persons[0].name} age={this.state.persons[0].age} /></h1>
         <h1 ><Person click={() => this.switchNameHandler("Jazzy")} name={this.state.persons[1].name} age={this.state.persons[1].age} changed={this.nameChangedHandler} >My Hobbies: French</Person></h1>
         <h1><Person name={this.state.persons[2].name} age={this.state.persons[2].age} /></h1>
+        <UserInput />
+
+        <button onClick={this.usernameChangeHandler}>Change Usernames</button>
+        <UserOutput userName={this.state.usernames[0].name} />
+        <UserOutput userName={this.state.usernames[1].name} />
+        <UserOutput userName="AZ" />
       </div>
     );
   }
