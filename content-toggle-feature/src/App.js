@@ -10,12 +10,23 @@ class App extends Component {
   state = {
     display: false
   }
+
+  toggleHandler = () => {
+    let current = this.state.display;
+    this.setState({
+      display: !current
+    })
+
+    console.log('Button was clicked')
+  }
+
+
   render(){
     return (
       <div className="App">
         <SectionWrapper>
-          <ToggleButton />
-          <ContentContainer />
+          <ToggleButton onClick={this.toggleHandler} />
+          {this.state.display ? <ContentContainer /> : null}
         </SectionWrapper>
       </div>
     );
