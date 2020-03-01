@@ -50,6 +50,16 @@ class App extends Component {
     })
   }
 
+  inputChanged = (event) => {
+    this.setState({
+      usernames: [
+        {name: event.target.value},
+        {name: event.target.value},
+        {name: event.target.value}
+      ]
+    })
+  }
+
   render(){
     const style = {
       backgroundColor: 'white',
@@ -65,7 +75,7 @@ class App extends Component {
         <h1><Person name={this.state.persons[0].name} age={this.state.persons[0].age} /></h1>
         <h1 ><Person click={() => this.switchNameHandler("Jazzy")} name={this.state.persons[1].name} age={this.state.persons[1].age} changed={this.nameChangedHandler} >My Hobbies: French</Person></h1>
         <h1><Person name={this.state.persons[2].name} age={this.state.persons[2].age} /></h1>
-        <UserInput />
+        <UserInput userName={this.state.usernames[0].name} userValue={this.inputChanged} />
 
         <button onClick={this.usernameChangeHandler}>Change Usernames</button>
         <UserOutput userName={this.state.usernames[0].name} />
