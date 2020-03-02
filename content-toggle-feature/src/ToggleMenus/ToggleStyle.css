@@ -19,7 +19,7 @@
 }
 
 .toggle-button{
-  display: block;
+  /* display: block; */
   width: 300px;
   box-sizing: border-box;
   padding: 10px;
