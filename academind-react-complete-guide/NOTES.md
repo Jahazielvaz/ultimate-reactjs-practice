@@ -10,3 +10,9 @@
 - Using React Hooks Instead Of Class Components: Basically you need to be able to to refactor your class components to functional components and then use react hooks to assign the initial state, and to be able to change the state at will.
 - Referencing a function inside a stateful component, on a stateless component.
 - Adding 2 way binding: This will help you so that you can record user input, and pass it to the UI. NOTE: TO BE CLEAR. It is 2 way binding because you're binding the onChange event to the value of the event. The method that makes that happen is bound to that event. And the 2nd binding happens when you use either value or defaultValue to set an initial value inside the input. That default value is bound to the input field
+
+
+## MILESTONES 2
+- Render Content Conditionally (Using The Ternary Conditional): Use the toggle feature to switch back and forth
+- Toggle (Using full javascript): This step is exactly the same as above, but with a preferred, cleaner way
+- Outputting Lists (Using The Map Feature): This could be great for outputting arrays, or dynamic content that comes from the fetch object. 
