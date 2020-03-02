@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <SectionWrapper>
-          <ToggleButton onClick={this.toggleHandler} />
+          <ToggleButton toggler={this.toggleHandler} />
           {this.state.display ? <ContentContainer /> : null}
         </SectionWrapper>
       </div>

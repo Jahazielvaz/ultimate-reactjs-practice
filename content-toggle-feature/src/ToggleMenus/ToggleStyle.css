@@ -28,4 +28,5 @@
   color: #eee;
   font-weight: bolder;
   text-transform: uppercase;
+  transition: 5s;
 }
