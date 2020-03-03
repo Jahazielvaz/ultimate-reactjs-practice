@@ -1,0 +1,13 @@
+*{
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.users{
+  max-width: 400px;
+  margin: 10px auto;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 3px 1px 4px 2px rgba(0, 0, 0, .3);
+}
