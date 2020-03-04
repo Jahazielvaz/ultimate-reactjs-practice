@@ -21,17 +21,23 @@ class App extends Component {
   }
 
   render(){
+    if(this.state.display){
+      const output = {
+        <div>
+          <Users name={this.state.users[0].name} last={this.state.users[0].last} />
+          <Users name={this.state.users[1].name} last={this.state.users[1].last} />
+          <Users name={this.state.users[2].name} last={this.state.users[2].last} />
+        </div>
+      }
+    } else {
+      null
+    }
+
     return (
       <div className="App">
         <section id="users-container">
           <button onClick={this.toggler}>Toggle Users</button>
-          {this.state.display ?
-            <div>
-            <Users name={this.state.users[0].name} last={this.state.users[0].last} />
-            <Users name={this.state.users[1].name} last={this.state.users[1].last} />
-            <Users name={this.state.users[2].name} last={this.state.users[2].last} />
-            </div>
-             : null }
+          {output}
         </section>
       </div>
     );
