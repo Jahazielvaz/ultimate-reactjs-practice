@@ -10,27 +10,36 @@ class App extends Component {
       {id: 2, name: 'Madilyn', last: 'Bayley'},
       {id: 3, name: 'Jfla', last: 'Unknown'},
       {id: 4, name: 'Boa', last: 'Unknown'}
-    ]
+    ],
+    peopleDisplay: false
   }
 
-  peeps = (
-    <div>
-      {
-        this.state.people.map(result => {
-          return <People name={result.name} last={result.last} />
-        })
-      }
-    </div>
-  )
+  peopleDisplayToggle = () => {
+    let switcher = this.state.peopleDisplay;
 
+    this.setState({
+      peopleDisplay: !switcher
+    })
+  }
 
   render(){
-
+    let peeps = null
+    if(this.state.peopleDisplay){
+      peeps = (
+        <div>
+          {
+            this.state.people.map(result => {
+              return <section key={result.id}>{result.name} {result.last}</section>
+            })
+          }
+        </div>
+      )
+    }
 
 
     return (
       <div className="App">
-      <button id="btn1">Reveal People</button>
+      <button onClick={this.peopleDisplayToggle} id="btn1">Reveal People</button>
         {peeps}
       </div>
     );
