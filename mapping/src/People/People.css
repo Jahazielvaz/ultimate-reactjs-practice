@@ -1,0 +1,13 @@
+#btn1{
+  height: 40px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+  background: rgba(43, 171, 119);
+  transition: .5s;
+}
+
+
+#btn1:hover{
+  box-shadow: 4px 1px 4px 2px rgba(0, 0, 0, .3);
+}
