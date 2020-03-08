@@ -9,9 +9,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      {name: 'Max', age: 28},
-      {name: 'Manu', age: 32},
-      {name: 'Jessica', age: 26},
+      {id: '3432', name: 'Max', age: 28},
+      {id: '244', name: 'Manu', age: 32},
+      {id: '654', name: 'Jessica', age: 26},
     ],
     usernames: [
       {name: 'Jazzy'},
@@ -68,6 +68,12 @@ class App extends Component {
     })
   }
 
+  deletePersonHandler = (personIndex) => {
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
+  }
+
   render(){
     const style = {
       backgroundColor: 'white',
@@ -82,9 +88,15 @@ class App extends Component {
     if(this.state.showPersons){
       persons = (
         <div>
-          {this.state.persons.map(result => {
-            return <Person name={result.name} age={result.age} />
-          })}
+          {
+            this.state.persons.map(person => {
+              return <Person
+                click={this.deletePersonHandler}
+                name={person.name}
+                age={person.age}
+                key={person.id} />
+            })
+          }
         </div>
       );
     }
