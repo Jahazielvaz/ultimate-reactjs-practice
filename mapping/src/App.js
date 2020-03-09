@@ -1,48 +1,45 @@
 import React, { Component } from 'react';
-import People from './People/People';
-
-import './App.css';
+import User from './People/People';
 
 class App extends Component {
   state = {
-    people: [
-      {id: 1, name: 'Jasmine', last: 'Thompson'},
-      {id: 2, name: 'Madilyn', last: 'Bayley'},
-      {id: 3, name: 'Jfla', last: 'Unknown'},
-      {id: 4, name: 'Boa', last: 'Unknown'}
+    users : [
+      {id: 5243, name: 'jazzyvaz', password: '3refd4'},
+      {id: 653, name: 'pelito300', password: 'ygfr4erd'},
+      {id: 986, name: 'jinjin', password: 'ruesd'}
     ],
-    peopleDisplay: false
+    userDisplay: false
   }
 
-  peopleDisplayToggle = () => {
-    let switcher = this.state.peopleDisplay;
+  userToggle = () => {
+    let displayState = this.state.userDisplay;
 
     this.setState({
-      peopleDisplay: !switcher
+      userDisplay : !displayState
     })
   }
 
   render(){
-    let peeps = null
-    if(this.state.peopleDisplay){
-      peeps = (
+    let output = null
+
+    if(this.state.userDisplay){
+      output = (
         <div>
-          {
-            this.state.people.map(result => {
-              return <section key={result.id}>{result.name} {result.last}</section>
-            })
-          }
+          {this.state.users.map(user => {
+            return <User key={user.id} users={user.name} password={user.password} />
+          })}
         </div>
       )
+
     }
 
-
-    return (
-      <div className="App">
-      <button onClick={this.peopleDisplayToggle} id="btn1">Reveal People</button>
-        {peeps}
+    return(
+      <div id="App">
+      <button onClick={this.userToggle}>DISPLAY USERS</button>
+        <h1>USERS LIST</h1>
+        {output}
       </div>
-    );
+    )
   }
 }
 
