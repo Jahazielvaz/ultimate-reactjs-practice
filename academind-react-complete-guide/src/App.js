@@ -10,8 +10,8 @@ class App extends Component {
   state = {
     persons: [
       {id: '3432', name: 'Max', age: 28},
-      {id: '244', name: 'Manu', age: 32},
       {id: '654', name: 'Jessica', age: 26},
+      {id: '234r8742ew', name: 'Manu', age: 32}
     ],
     usernames: [
       {name: 'Jazzy'},
@@ -31,13 +31,23 @@ class App extends Component {
     })
   }
 
-  nameChangedHandler = (event) => {
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+
+    persons[personIndex] = person;
+
     this.setState({
-      persons: [
-        {name: "Max", age: 34},
-        {name: event.target.value, age: 20},
-        {name: 'Valerie', age: 26}
-      ]
+      persons: persons
     })
   }
 
@@ -89,12 +99,14 @@ class App extends Component {
       persons = (
         <div>
           {
-            this.state.persons.map(person => {
+            this.state.persons.map((person, index) => {
               return <Person
-                click={this.deletePersonHandler}
+                click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
-                key={person.id} />
+                key={person.id}
+                changed={(event) => this.nameChangedHandler(event, person.id)} />
+
             })
           }
         </div>
@@ -106,6 +118,8 @@ class App extends Component {
 
         <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
         {persons}
+
+
 
         <UserInput userName={this.state.usernames[0].name} userValue={this.inputChanged} />
         <button style={style} onClick={this.usernameChangeHandler}>Change Usernames</button>
