@@ -6,6 +6,8 @@ import UserOutput from './UserOutput/UserOutput';
 
 import Person from './Person/Person';
 
+import Outputter from './academind-practice/Outputter';
+
 class App extends Component {
   state = {
     persons: [
@@ -18,7 +20,8 @@ class App extends Component {
       {name: 'Michelle'},
       {name: 'Breanna'}
     ],
-    showPersons : false
+    showPersons : false,
+    practiceState : 'Initial State Text'
   }
 
   switchNameHandler = (newName) => {
@@ -84,6 +87,14 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
+  changeHandler = (event) => {
+    let currentState = this.state.practiceState;
+    currentState = event.target.value;
+    this.setState({
+      practiceState: currentState
+    })
+  }
+
   render(){
     const style = {
       backgroundColor: 'white',
@@ -113,6 +124,12 @@ class App extends Component {
       );
     }
 
+    let textLength = (
+      <p>{this.state.practiceState.length}</p>
+    );
+
+
+
     return (
       <div className="App">
 
@@ -126,6 +143,14 @@ class App extends Component {
         <UserOutput userName={this.state.usernames[0].name} />
         <UserOutput userName={this.state.usernames[1].name} />
         <UserOutput userName="AZ" />
+
+
+
+        <div id="practice-section">
+          <h1 id="practice-title-one">Practice Section</h1>
+
+          <Outputter myState={this.state.practiceState} change={this.changeHandler} length={textLength} />
+        </div>
       </div>
     );
   }

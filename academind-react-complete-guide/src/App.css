@@ -1,3 +1,16 @@
 .App {
   text-align: center;
 }
+
+#practice-section{
+  border: 1px solid black;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 30px;
+}
+
+#practice-input{
+  box-shadow: 2px -1px 4px 2px rgba(0, 0, 0, .3);
+  padding: 5px 10px;
+  margin: 10px;
+}
