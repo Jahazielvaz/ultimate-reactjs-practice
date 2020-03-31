@@ -1,59 +1,68 @@
 import React, { Component } from 'react';
 import './App.css';
-import PeopleOutput from './PeopleOutput/PeopleOutput';
-import UserInput from './PeopleOutput/UserInput';
+import UserInput from './ItemsDisplay/UserInput';
+import ItemsDisplay from './ItemsDisplay/ItemsDisplay';
+
 
 class App extends Component{
-  state = {
-    people: [
-      {id: 234, name: 'peter', password: '3etdf'},
-      {id: 44, name: 'jonny', password: '353423df'},
-      {id: 98767, name: 'peter', password: 'irgfjkf'},
-      {id: 456, name: 'peter', password: '87uytg'}
+  state={
+    items: [
+      {id: 3542, name: 'Pillow', price: 32},
+      {id: 5353, name: 'Cabinet', price: 54},
+      {id: 8762, name: 'Guitar', price: 3253},
+      {id: 1457, name: 'building', price: 321234543234},
+      {id:765, name: 'Your Item', price: 'Your Price'}
     ],
-    peopleToggler: false,
-    username: 'Your username'
+    displayToggler: false
   }
 
-  peopleToggleHandler = () => {
-    let switcher = this.state.peopleToggler;
+  lastItemHandler = (event) => {
+    let itemDefaultState = this.state.items[4];
 
     this.setState({
-      peopleToggler: !switcher
+      items: [
+        {id: 3542, name: 'Pillow', price: 32},
+        {id: 5353, name: 'Cabinet', price: 54},
+        {id: 8762, name: 'Guitar', price: 3253},
+        {id: 1457, name: 'building', price: 321234543234},
+        {id: 765, name: event.target.value, price: event.target.value}
+      ]
     })
   }
 
-  usernameHandler = (event) => {
+  toggleHandler = () => {
+    const toggler = this.state.displayToggler;
 
     this.setState({
-      username: event.target.value
+      displayToggler: !toggler
     })
   }
+
+
 
 
   render(){
-    let peopleRender = null;
+    let items = null
 
-    if(this.state.peopleToggler){
-      peopleRender = (
+    if(this.state.displayToggler){
+      items = (
         <div>
-          {
-            this.state.people.map(person => {
-              return <PeopleOutput key={person.id} name={person.name} password={person.password} />
-            })
-          }
+          {this.state.items.map(item => {
+            return <ItemsDisplay key={item.id} name={item.name} price={item.price}></ItemsDisplay>
+          })}
         </div>
       )
+
     }
 
-    return (
+    return(
       <div className="App">
-        <button onClick={this.peopleToggleHandler}>Display People</button>
-        {peopleRender}
-        <UserInput nameHandler={(event) => this.usernameHandler(event)} username={this.state.username}  />
+        <button onClick={this.toggleHandler}>Display Items</button>
+        {items}
+        <UserInput changeHandler={event => this.lastItemHandler(event)} inputsName={this.state.items[4]} />
       </div>
-    );
-  };
+    )
+  }
 }
 
 export default App;

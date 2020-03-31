@@ -7,6 +7,7 @@ import UserOutput from './UserOutput/UserOutput';
 import Person from './Person/Person';
 
 import Outputter from './academind-practice/Outputter';
+import LengthValidation from './academind-practice/LengthValidation';
 
 class App extends Component {
   state = {
@@ -93,6 +94,7 @@ class App extends Component {
     this.setState({
       practiceState: currentState
     })
+
   }
 
   render(){
@@ -128,6 +130,9 @@ class App extends Component {
       <p>{this.state.practiceState.length}</p>
     );
 
+    let lengthValidate = '';
+
+    
 
 
     return (
@@ -150,6 +155,7 @@ class App extends Component {
           <h1 id="practice-title-one">Practice Section</h1>
 
           <Outputter myState={this.state.practiceState} change={this.changeHandler} length={textLength} />
+          <LengthValidation validate={lengthValidate} />
         </div>
       </div>
     );
