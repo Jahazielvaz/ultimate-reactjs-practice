@@ -8,6 +8,7 @@ import Person from './Person/Person';
 
 import Outputter from './academind-practice/Outputter';
 import LengthValidation from './academind-practice/LengthValidation';
+import Char from './academind-practice/Char';
 
 class App extends Component {
   state = {
@@ -22,7 +23,8 @@ class App extends Component {
       {name: 'Breanna'}
     ],
     showPersons : false,
-    practiceState : 'Initial State Text'
+    userInput: ''
+
   }
 
   switchNameHandler = (newName) => {
@@ -32,26 +34,6 @@ class App extends Component {
         {name: 'Vincent', age: 2},
         {name: 'Valerie', age: 26}
       ]
-    })
-  }
-
-  nameChangedHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id;
-    });
-
-    const person = {
-      ...this.state.persons[personIndex]
-    };
-
-    person.name = event.target.value;
-
-    const persons = [...this.state.persons];
-
-    persons[personIndex] = person;
-
-    this.setState({
-      persons: persons
     })
   }
 
@@ -88,16 +70,30 @@ class App extends Component {
     this.setState({persons: persons});
   }
 
-  changeHandler = (event) => {
-    let currentState = this.state.practiceState;
-    currentState = event.target.value;
-    this.setState({
-      practiceState: currentState
-    })
-
+  inputChangedHandler = (event) => {
+    this.setState({userInput: event.target.value});
   }
 
+  deleteCharHandler = (index) => {
+    const text = this.state.userInput.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+    this.setState({userInput: updatedText})
+  }
+
+
+
+
   render(){
+    let 
+    let personsDisplay = (
+      {
+        if(this.state.showPersons){
+
+        }
+      }
+    )
+
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
@@ -106,41 +102,15 @@ class App extends Component {
       cursor: 'pointer'
     };
 
-    let persons = null;
-
-    if(this.state.showPersons){
-      persons = (
-        <div>
-          {
-            this.state.persons.map((person, index) => {
-              return <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={(event) => this.nameChangedHandler(event, person.id)} />
-
-            })
-          }
-        </div>
-      );
-    }
-
-    let textLength = (
-      <p>{this.state.practiceState.length}</p>
-    );
-
-    let lengthValidate = '';
-
-    
+    const charList = this.state.userInput.split('').map((char, index) => {
+      return <Char character={char} key={index} clicked={() => this.deleteCharHandler(index)} />
+    })
 
 
     return (
       <div className="App">
 
         <button style={style} onClick={this.togglePersonsHandler}>Switch Name</button>
-        {persons}
-
 
 
         <UserInput userName={this.state.usernames[0].name} userValue={this.inputChanged} />
@@ -150,12 +120,12 @@ class App extends Component {
         <UserOutput userName="AZ" />
 
 
-
+        <hr />
         <div id="practice-section">
-          <h1 id="practice-title-one">Practice Section</h1>
-
-          <Outputter myState={this.state.practiceState} change={this.changeHandler} length={textLength} />
-          <LengthValidation validate={lengthValidate} />
+          <input type="text" onChange={this.inputChangedHandler} value={this.state.userInput} />
+          <p>{this.state.userInput}</p>
+          <LengthValidation inputLength={this.state.userInput.length} />
+          {charList}
         </div>
       </div>
     );
